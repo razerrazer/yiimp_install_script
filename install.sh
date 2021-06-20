@@ -186,8 +186,8 @@
     libpsl-dev libnghttp2-dev
     fi
     sleep 5
-    sudo systemctl start php7.2-fpm
-    sudo systemctl status php7.2-fpm | sed -n "1,3p"
+    sudo systemctl start php7.3-fpm
+    sudo systemctl status php7.3-fpm | sed -n "1,3p"
     sleep 15
     echo
     echo -e "$GREEN Done...$COL_RESET"
