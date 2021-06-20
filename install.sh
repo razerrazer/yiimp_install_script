@@ -5,8 +5,8 @@
 # Web: https://www.xavatar.com    
 #
 # Program:
-#   Install yiimp on Ubuntu 16.04/18.04 running Nginx, MariaDB, and php7.2
-#   v0.2 (update Avril, 2020)
+#   Install yiimp on Ubuntu 16.04/18.04 running Nginx, MariaDB, and php7.3
+#   v0.2 (update June, 2021)
 # 
 ################################################################################
     
@@ -805,7 +805,7 @@
             deny all;
     }
         location ~ /phpmyadmin/(.+\.php)$ {
-            fastcgi_pass unix:/run/php/php7.2-fpm.sock;
+            fastcgi_pass unix:/run/php/php7.3-fpm.sock;
             fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
             include fastcgi_params;
             include snippets/fastcgi-php.conf;
@@ -818,7 +818,7 @@
     echo -e "$GREEN Done...$COL_RESET"
 
     fi
-    sudo systemctl reload php7.2-fpm.service
+    sudo systemctl reload php7.3-fpm.service
     sudo systemctl restart nginx.service
     fi
     
@@ -1121,8 +1121,8 @@
     sudo systemctl status mysql | sed -n "1,3p"
     sudo systemctl restart nginx.service
     sudo systemctl status nginx | sed -n "1,3p"
-    sudo systemctl restart php7.2-fpm.service
-    sudo systemctl status php7.2-fpm | sed -n "1,3p"
+    sudo systemctl restart php7.3-fpm.service
+    sudo systemctl status php7.3-fpm | sed -n "1,3p"
 
 
     echo
